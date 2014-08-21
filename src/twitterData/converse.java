@@ -40,9 +40,10 @@ public class converse {
 			String replies = index.get(key);
 			String[] nodes = replies.split(":");
 			int i=0;
-			for(i=0;i<nodes.length;i++){
-				key = nodes[i];
-				String sth = result(index, key);
+			System.out.println("Length " + nodes.length);
+			for(i=1;i<nodes.length;i++){
+				String itKey = nodes[i];
+				String sth = result(index, itKey);
 				ans = ans + "(" + sth + ")";
 			}
 			return ans;
@@ -156,10 +157,12 @@ public class converse {
 				  counter++;
 				  String replyValue = index.get(array[1]);
 				  replyValue = replyValue + ":" + array[0];
-				  index.put(array[1], replyValue);
+				  if(replyValue != null){
+					  index.put(array[1], replyValue);
+				  }
 				  index.put(array[0], "null");
 				  System.out.println(index.get(array[1]));
-//				  System.out.println("-------------FUCK-----------------");
+//				  System.out.println("------------------------------");
 			  }
 			  System.out.println(array[1]);
 			  if(array[1].equals("null")){
